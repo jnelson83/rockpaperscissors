@@ -17,16 +17,36 @@
         <![endif]-->
         
         <script>
-        function computerPlay(){
-            var randomPlay = ["Rock", "Paper", "Scissors"];
-            return
-        }
-        function playRound(playerSelection, computerSelection){
 
-        }
+        function computerPlay() { 
+        let cPlay = ["Rock", "Paper", "Scissors"]; //Possible options for computer play
+        let randNum = Math.floor(Math.random() * 3); // Generates a random number between 0 and 2
+        computerSelection = cPlay[randNum];
+        return computerSelection
+        console.log("The computer is playing " + computerSelection);
+        } // Function to generate random selection string to be played by computer in the round.
+
+
         
-        function game(playRound,)
-
+        playerSelection = prompt("Enter your move:", "Rock, Paper, or Scissors"); //Ask player for rock, paper or scissors
+        playerSelection = playerSelection.toUpperCase(); //convert player's selection to upper case
+        
+        
+        // let computerSelection = cPlay[randNum].toUpperCase(); //Supposed to return random string from computerPlay array - DOES NOT CURRENTLY WORK AS EXPECTED - ONLY RETURNS A DIFFERENT STRING UPON RELOAD OF PAGE
+        // computerSelection = computerSelection.toUpperCase(); //converts to uppercase    
+        function singleRound(playerSelection, computerSelection) // CURRENTLY ONLY RETURNING "IT IS A TIE!"
+        {            
+        console.log(playerSelection);
+        console.log(computerSelection);        
+        if (playerSelection === computerSelection) {
+            console.log("It is a tie!");
+        } else if (playerSelection == "ROCK" && computerSelection == "SCISSORS" || playerSelection == "SCISSORS" && computerSelection == "PAPER" || playerSelection == "PAPER" && computerSelection == "ROCK") {
+            console.log("The player wins!");
+        } else {
+            console.log("The computer wins!");
+            }
+            }
+        
         </script>
     </body>
 </html>
