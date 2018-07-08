@@ -25,19 +25,20 @@
         return computerSelection
         console.log("The computer is playing " + computerSelection);
         } // Function to generate random selection string to be played by computer in the round.
-
-
         
-        playerSelection = prompt("Enter your move:", "Rock, Paper, or Scissors"); //Ask player for rock, paper or scissors
-        playerSelection = playerSelection.toUpperCase(); //convert player's selection to upper case
+        // playerSelection = prompt("Enter your move:", "Rock, Paper, or Scissors"); //Ask player for rock, paper or scissors
+        // playerSelection = playerSelection.toUpperCase(); //convert player's selection to upper case
         
         
         // let computerSelection = cPlay[randNum].toUpperCase(); //Supposed to return random string from computerPlay array - DOES NOT CURRENTLY WORK AS EXPECTED - ONLY RETURNS A DIFFERENT STRING UPON RELOAD OF PAGE
         // computerSelection = computerSelection.toUpperCase(); //converts to uppercase    
-        function singleRound(playerSelection, computerSelection) // CURRENTLY ONLY RETURNING "IT IS A TIE!"
-        {            
-        console.log(playerSelection);
-        console.log(computerSelection);        
+
+        function playRound(playerSelection, computerSelection) // CURRENTLY ONLY RETURNING "IT IS A TIE!"
+        {
+        const playerSelection = "rock"
+        const computerSelection = computerPlay()            
+        console.log(playRound(playerSelection, computerSelection))
+              
         if (playerSelection === computerSelection) {
             console.log("It is a tie!");
         } else if (playerSelection == "ROCK" && computerSelection == "SCISSORS" || playerSelection == "SCISSORS" && computerSelection == "PAPER" || playerSelection == "PAPER" && computerSelection == "ROCK") {
