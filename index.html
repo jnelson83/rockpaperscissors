@@ -16,38 +16,48 @@
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
         
-        <script>
+    <script>
+    let playerScore = 0
+    let computerScore = 0
+    let tieCount = 0
 
-        function computerPlay() { 
-        const cPlay = ["Rock", "Paper", "Scissors"]; //Possible options for computer play
-        const randNum = Math.floor(Math.random() * 3); // Generates a random number between 0 and 2
-        computerSelection = cPlay[randNum];
-        return computerSelection
-        console.log("The computer is playing " + computerSelection);
-        } // Function to generate random selection string to be played by computer in the round.
+    function game () {
+        let playerSelection = prompt ("Make your choice\:", "Rock, Paper, or Scissors").toUpperCase();
+        let computerSelection = computerPlay();       
+        return playRound(playerSelection, computerSelection);
         
-        // playerSelection = prompt("Enter your move:", "Rock, Paper, or Scissors"); //Ask player for rock, paper or scissors
-        // playerSelection = playerSelection.toUpperCase(); //convert player's selection to upper case
-        
-        
-        // let computerSelection = cPlay[randNum].toUpperCase(); //Supposed to return random string from computerPlay array - DOES NOT CURRENTLY WORK AS EXPECTED - ONLY RETURNS A DIFFERENT STRING UPON RELOAD OF PAGE
-        // computerSelection = computerSelection.toUpperCase(); //converts to uppercase    
 
-        function playRound(playerSelection, computerSelection) // CURRENTLY ONLY RETURNING "IT IS A TIE!"
-        {
-        const playerSelection = "rock"
-        const computerSelection = computerPlay()            
-        console.log(playRound(playerSelection, computerSelection))
-              
-        if (playerSelection === computerSelection) {
-            console.log("It is a tie!");
-        } else if (playerSelection == "ROCK" && computerSelection == "SCISSORS" || playerSelection == "SCISSORS" && computerSelection == "PAPER" || playerSelection == "PAPER" && computerSelection == "ROCK") {
-            console.log("The player wins!");
-        } else {
-            console.log("The computer wins!");
-            }
-            }
-        
-        </script>
+        function computerPlay() {
+            const options = ["Rock", "Paper", "Scissors"];
+            const randNum = Math.floor(Math.random()* 3);
+            return options[randNum].toUpperCase();
+        }
+
+        function playRound() {
+            console.log("You chose " + playerSelection);
+            console.log("The computer selected " + computerSelection)
+            if (playerSelection === computerSelection) {
+                console.log("It\'s a tie! Nobody wins this round...");
+                tieCount++;
+            } else if (playerSelection == "ROCK" && computerSelection == "SCISSORS" || playerSelection == "SCISSORS" && computerSelection == "PAPER" || playerSelection == "PAPER" && computerSelection == "ROCK") {
+                console.log("The player wins this round!");
+                playerScore++;
+            } else {
+                console.log("The computer wins this round!");
+                computerScore++;
+        }
+            console.log("Your Score = " + playerScore, "Computer Score = " + computerScore, "Number of Ties = " + tieCount)
+        }
+    }
+
+    for (let i = playerScore + computerScore; i = (playerScore + computerScore) < 5; ++i) {
+        game();
+    }       
+    if (playerScore > computerScore) {
+        console.log("You won the match! You should consider joining the pro circuit!");
+    } else {
+        console.log("You lost the match... Cheer up! There's always next time!");
+    }
+    </script>
     </body>
 </html>
